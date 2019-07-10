@@ -52,12 +52,12 @@ node ./database-mysql/seeds/loadFakeData.js
 ### Running Locally
 *Compile react app for Production*
 ```console
-npm run react-prod
+npm run react
 ```
 
 *Run server*
 ```console
-npm run server
+npm start
 ```
 
 
