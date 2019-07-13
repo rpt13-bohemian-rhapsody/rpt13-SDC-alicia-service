@@ -61,7 +61,7 @@ npm run react
 npm start
 ```
 
-## API Endpoints:
+## API_Endpoints:
 *GET /product/:id*
 - returns product information based on id 
 
