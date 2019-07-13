@@ -55,7 +55,6 @@ app.post('/item', (req, res) => {
 
 app.post('/itemavail', (req, res) => {
 	var postItemAvail = req.body;
-	console.log(req.body);
 	connection.query('INSERT INTO item_availability SET ?', postItemAvail, (err, results, fields) => {
 		if (err) {
 			console.log(' issue posting to item_availability table ');
@@ -92,17 +91,80 @@ app.post('/vendor', (req, res) => {
 	});
 });
 
-// app.put('/item', (req, res) => {
-// 	console.log('%s %s %s', req.method, req.url, req.path);
-// 	console.log(req.params.id);
-// 	res.send(`Hi ${req.params.id}`);
-// });
+app.put('/item', (req, res) => {
+	connection.query('UPDATE item SET name= ? WHERE id= ?', [ req.body.name, req.body.id ], (err, results, fields) => {
+		if (err) {
+			console.log(' issue editing item table ');
+			res.status(400).send(err);
+		} else {
+			res.status(200).send(JSON.stringify(results));
+		}
+	});
+});
 
-// app.delete('/product/:id', (req, res) => {
-// 	console.log('%s %s %s', req.method, req.url, req.path);
-// 	console.log(req.params.id);
-// 	res.send(`Hello ${req.params.id}`);
-// });
+app.put('/itemavail', (req, res) => {
+	connection.query(
+		'UPDATE item_availability SET item_id= ?, vendor_id= ?, items_condition= ?, price= ?, quantity_available= ?, amz_holds_stock= ?, free_returns= ?, ship_from_zipcode= ? WHERE id= ?',
+		[
+			req.body.item_id,
+			req.body.vendor_id,
+			req.body.items_condition,
+			req.body.price,
+			req.body.quantity_available,
+			req.body.amz_holds_stock,
+			req.body.free_returns,
+			req.body.ship_from_zipcode,
+			req.body.id
+		],
+		(err, results, fields) => {
+			if (err) {
+				console.log(' issue editing item_availability table ');
+				res.status(400).send(err);
+			} else {
+				res.status(200).send(JSON.stringify(results));
+			}
+		}
+	);
+});
+
+app.put('/user', (req, res) => {
+	connection.query(
+		'UPDATE user SET name= ?, email= ?, default_address_zip= ? WHERE id= ?',
+		[ req.body.name, req.body.email, req.body.default_address_zip, req.body.id ],
+		(err, results, fields) => {
+			if (err) {
+				console.log(' issue editing user table ');
+				res.status(400).send(err);
+			} else {
+				res.status(200).send(JSON.stringify(results));
+			}
+		}
+	);
+});
+
+app.put('/vendor', (req, res) => {
+	connection.query(
+		'UPDATE vendor SET name= ?, amz_holds_stock= ?, free_returns= ?, ships_on_saturday= ?, ships_on_sunday= ?, ships_from_zipcode= ?, status= ? WHERE id= ?',
+		[
+			req.body.name,
+			req.body.amz_holds_stock,
+			req.body.free_returns,
+			req.body.ships_on_saturday,
+			req.body.ships_on_sunday,
+			req.body.ships_from_zipcode,
+			req.body.status,
+			req.body.id
+		],
+		(err, results, fields) => {
+			if (err) {
+				console.log(' issue editing vendor table ');
+				res.status(400).send(err);
+			} else {
+				res.status(200).send(JSON.stringify(results));
+			}
+		}
+	);
+});
 
 app.listen(PORT, () => {
 	console.log(`Open http://localhost:${PORT}`);
