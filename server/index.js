@@ -42,12 +42,49 @@ app.get('/product/:id', (req, res) => {
 });
 
 app.post('/item', (req, res) => {
-	var postData = req.body;
-	var stringpost = JSON.stringify(req.body.name);
-	console.log(`req.body: ${stringpost}`);
-	connection.query('INSERT INTO item SET ?', postData, (err, results, fields) => {
+	var postItem = req.body;
+	connection.query('INSERT INTO item SET ?', postItem, (err, results, fields) => {
 		if (err) {
 			console.log(' issue posting to item table ');
+			res.status(400).send(err);
+		} else {
+			res.status(200).send(JSON.stringify(results));
+		}
+	});
+});
+
+app.post('/itemavail', (req, res) => {
+	var postItemAvail = req.body;
+	console.log(req.body);
+	connection.query('INSERT INTO item_availability SET ?', postItemAvail, (err, results, fields) => {
+		if (err) {
+			console.log(' issue posting to item_availability table ');
+			res.status(400).send(err);
+		} else {
+			res.status(200).send(JSON.stringify(results));
+		}
+	});
+});
+
+app.post('/user', (req, res) => {
+	var postUser = req.body;
+	console.log(req.body);
+	connection.query('INSERT INTO user SET ?', postUser, (err, results, fields) => {
+		if (err) {
+			console.log(' issue posting to user table ');
+			res.status(400).send(err);
+		} else {
+			res.status(200).send(JSON.stringify(results));
+		}
+	});
+});
+
+app.post('/vendor', (req, res) => {
+	var postVendor = req.body;
+	console.log(req.body);
+	connection.query('INSERT INTO vendor SET ?', postVendor, (err, results, fields) => {
+		if (err) {
+			console.log(' issue posting to vendor table ');
 			res.status(400).send(err);
 		} else {
 			res.status(200).send(JSON.stringify(results));
