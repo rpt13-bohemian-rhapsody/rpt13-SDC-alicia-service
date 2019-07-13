@@ -1,6 +1,6 @@
 module.exports = {
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'amazonpricing'
+	host: 'localhost',
+	user: 'root',
+	password: '',
+	database: 'amazonpricing'
 };
