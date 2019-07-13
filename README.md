@@ -63,16 +63,16 @@ npm start
 
 ## API Endpoints:
 *GET /product/:id*
--returns product information based on id 
+- returns product information based on id 
 
 *POST /item, POST /itemavail, POST /user, POST /vendor*
--posts data to corresponding tables
+- posts data to corresponding tables
 
 *PUT /item, PUT /itemavail, PUT /user, PUT /vendor*
--updates data of corresponding tables based on id
+- updates data of corresponding tables based on id
 
 *DELETE /item, DELETE /itemavail, DELETE /user, DELETE /vendor*
--deletes record of corresponding table based on id
+- deletes record of corresponding table based on id
 
 ## Resources:
 
