@@ -166,6 +166,50 @@ app.put('/vendor', (req, res) => {
 	);
 });
 
+app.delete('/item', (req, res) => {
+	connection.query('DELETE FROM item WHERE id= ?', [ req.body.id ], (err, results, fields) => {
+		if (err) {
+			console.log(' issue deleting item from table ');
+			res.status(400).send(err);
+		} else {
+			res.status(200).send(' item record has been deleted ');
+		}
+	});
+});
+
+app.delete('/itemavail', (req, res) => {
+	connection.query('DELETE FROM item_availability WHERE id= ?', [ req.body.id ], (err, results, fields) => {
+		if (err) {
+			console.log(' issue deleting from table ');
+			res.status(400).send(err);
+		} else {
+			res.status(200).send(' record has been deleted ');
+		}
+	});
+});
+
+app.delete('/user', (req, res) => {
+	connection.query('DELETE FROM user WHERE id= ?', [ req.body.id ], (err, results, fields) => {
+		if (err) {
+			console.log(' issue deleting user from table ');
+			res.status(400).send(err);
+		} else {
+			res.status(200).send(' user record has been deleted ');
+		}
+	});
+});
+
+app.delete('/vendor', (req, res) => {
+	connection.query('DELETE FROM vendor WHERE id= ?', [ req.body.id ], (err, results, fields) => {
+		if (err) {
+			console.log(' issue deleting vendor from table ');
+			res.status(400).send(err);
+		} else {
+			res.status(200).send(' vendor record has been deleted ');
+		}
+	});
+});
+
 app.listen(PORT, () => {
 	console.log(`Open http://localhost:${PORT}`);
 });
