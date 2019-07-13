@@ -8,7 +8,7 @@
 
 1. [Assumptions](#Assumptions)
 1. [Setup](#Setup)
-1. [API Endpoints](#API Endpoints)
+1. [API_Endpoints](#API_Endpoints) 
 1. [Resources](#Resources)
 
 ## Assumptions:
