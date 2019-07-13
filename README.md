@@ -1,21 +1,22 @@
 # Amazon Item's Availability and Shipping Service
 
-## Requirements
+## Requirements:
 
 [Requirements](https://docs.google.com/spreadsheets/d/1jAmQhyiLWy7RlhhKkWwPfVqF4SVUXgnY1TYL2BAQMh4/edit#gid=2131387446)
 
-## Table of Contents
+## Table of Contents:
 
 1. [Assumptions](#Assumptions)
 1. [Setup](#Setup)
+1. [API Endpoints](#API Endpoints)
 1. [Resources](#Resources)
 
-## Assumptions
+## Assumptions:
 
 -- all Users are located in US
 
 
-## Setup
+## Setup:
 
 ### Installing Dependencies
 *Install MySQL*
@@ -60,6 +61,18 @@ npm run react
 npm start
 ```
 
+## API Endpoints:
+*GET /product/:id*
+-returns product information based on id 
+
+*POST /item, POST /itemavail, POST /user, POST /vendor*
+-posts data to corresponding tables
+
+*PUT /item, PUT /itemavail, PUT /user, PUT /vendor*
+-updates data of corresponding tables based on id
+
+*DELETE /item, DELETE /itemavail, DELETE /user, DELETE /vendor*
+-deletes record of corresponding table based on id
 
 ## Resources:
 
