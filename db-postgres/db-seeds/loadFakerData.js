@@ -1,7 +1,7 @@
-const generateFakeData = require('./generateFakeData');
-const mysql = require('../../database-mysql');
+const generateFakeData = require('./generateFakerData');
+//const mysql = require('../../database-mysql');
 
-function generateUsers() {
+function generateUsers () {
 
   let users = [];
 
@@ -22,7 +22,7 @@ function generateUsers() {
 
 generateUsers();
 
-function generateItems() {
+function generateItems () {
 
   let items = [];
 
@@ -43,7 +43,7 @@ function generateItems() {
 
 generateItems();
 
-function generateVendors() {
+function generateVendors () {
 
   let vendors = [];
 
@@ -64,7 +64,7 @@ function generateVendors() {
 
 generateVendors();
 
-function generateItemAvail() {
+function generateItemAvail () {
 
   let itemAvail = [];
 

@@ -1,5 +1,4 @@
 const faker = require("faker");
-//faker.setLocale("en_US");
 
 faker.seed(123);
 

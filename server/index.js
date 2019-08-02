@@ -92,7 +92,7 @@ app.post('/vendor', (req, res) => {
 });
 
 app.put('/item', (req, res) => {
-	connection.query('UPDATE item SET name= ? WHERE id= ?', [ req.body.name, req.body.id ], (err, results, fields) => {
+	connection.query('UPDATE item SET name= ? WHERE id= ?', [req.body.name, req.body.id], (err, results, fields) => {
 		if (err) {
 			console.log(' issue editing item table ');
 			res.status(400).send(err);
@@ -130,7 +130,7 @@ app.put('/itemavail', (req, res) => {
 app.put('/user', (req, res) => {
 	connection.query(
 		'UPDATE user SET name= ?, email= ?, default_address_zip= ? WHERE id= ?',
-		[ req.body.name, req.body.email, req.body.default_address_zip, req.body.id ],
+		[req.body.name, req.body.email, req.body.default_address_zip, req.body.id],
 		(err, results, fields) => {
 			if (err) {
 				console.log(' issue editing user table ');
@@ -167,7 +167,7 @@ app.put('/vendor', (req, res) => {
 });
 
 app.delete('/item', (req, res) => {
-	connection.query('DELETE FROM item WHERE id= ?', [ req.body.id ], (err, results, fields) => {
+	connection.query('DELETE FROM item WHERE id= ?', [req.body.id], (err, results, fields) => {
 		if (err) {
 			console.log(' issue deleting item from table ');
 			res.status(400).send(err);
@@ -178,7 +178,7 @@ app.delete('/item', (req, res) => {
 });
 
 app.delete('/itemavail', (req, res) => {
-	connection.query('DELETE FROM item_availability WHERE id= ?', [ req.body.id ], (err, results, fields) => {
+	connection.query('DELETE FROM item_availability WHERE id= ?', [req.body.id], (err, results, fields) => {
 		if (err) {
 			console.log(' issue deleting from table ');
 			res.status(400).send(err);
@@ -189,7 +189,7 @@ app.delete('/itemavail', (req, res) => {
 });
 
 app.delete('/user', (req, res) => {
-	connection.query('DELETE FROM user WHERE id= ?', [ req.body.id ], (err, results, fields) => {
+	connection.query('DELETE FROM user WHERE id= ?', [req.body.id], (err, results, fields) => {
 		if (err) {
 			console.log(' issue deleting user from table ');
 			res.status(400).send(err);
@@ -200,7 +200,7 @@ app.delete('/user', (req, res) => {
 });
 
 app.delete('/vendor', (req, res) => {
-	connection.query('DELETE FROM vendor WHERE id= ?', [ req.body.id ], (err, results, fields) => {
+	connection.query('DELETE FROM vendor WHERE id= ?', [req.body.id], (err, results, fields) => {
 		if (err) {
 			console.log(' issue deleting vendor from table ');
 			res.status(400).send(err);
