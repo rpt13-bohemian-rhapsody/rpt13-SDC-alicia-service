@@ -11,9 +11,6 @@ pids
 logs
 *.log
 
-#csv files
-db-csvFiles/
-
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
 env/
